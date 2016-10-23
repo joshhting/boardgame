@@ -21,12 +21,25 @@ import javafx.scene.text.Font;
 public class BoardScreen {
     Group boardGroup;
     Scene scene;
+    final int numTileRows = 5;
+    final int numTileCols = 7;
+    final int tileEdgeWidth = 5;
 
     public BoardScreen(int width, int height) {
         boardGroup = new Group();
         Rectangle boardBackground = new Rectangle(0, 0, width, height);
         boardBackground.setFill(Color.BLUE);
         boardGroup.getChildren().add(boardBackground);
+        // add edges of tiles to board
+        int tileLength = Math.min(width, height) / 9;
+        for (int i = 0; i <= numTileCols; i++) {
+                boardGroup.getChildren().add(new Rectangle(width / 2 + tileLength * (i - numTileRows / 2.0), tileLength,
+                        tileEdgeWidth, tileLength * numTileRows));
+        }
+        for (int j = 0; j <= numTileRows; j++) {
+                boardGroup.getChildren().add(new Rectangle(width / 2 - tileLength * numTileRows / 2.0, tileLength * (j + 1),
+                        tileLength * numTileCols + tileEdgeWidth, tileEdgeWidth));
+        }
         scene = new Scene(boardGroup, width, height);
     }
 

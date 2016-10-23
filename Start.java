@@ -43,7 +43,6 @@ public class Start extends Application {
         scene.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
             public void handle(KeyEvent e) {
                 if (e.getCode() == KeyCode.ENTER) {
-                    System.out.println("hi");
                     stage.setScene(gameBoard.getScene());
                 }
             }
