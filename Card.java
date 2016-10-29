@@ -14,7 +14,7 @@ public class Card {
         this.text = text;
     }
 
-    private enum CardType {
+    public enum CardType {
         OPERATION,
         SHIP,
         ASSET
